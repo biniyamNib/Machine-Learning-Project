@@ -9,7 +9,7 @@ matplotlib>=3.4.0
 seaborn>=0.11.0
 
 # Machine Learning Libraries
-scikit-learn>=0.24.0
+scikit-learn==1.5.1
 joblib>=1.0.0
 
 # Additional Libraries (if needed for deployment or other tasks)

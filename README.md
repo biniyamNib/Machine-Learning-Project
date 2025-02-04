@@ -121,6 +121,7 @@ Rain_Prediction_Model/
 ├── rain_prediction_model.joblib # Trained model
 ├── requirements.txt             # Python dependencies
 ├── Weather.csv                  # csv file
+├── streamlit_app.py             # User Interface
 └── README.md  
 
 ```
