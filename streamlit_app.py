@@ -6,7 +6,7 @@ import pandas as pd
 FASTAPI_URL = "http://127.0.0.1:8000/predict"
 
 # Title of the app
-st.title("🌧️ Rain Prediction App")
+st.title(" Rain Prediction App")
 
 # Description
 st.write("""
