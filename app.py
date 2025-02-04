@@ -3,6 +3,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import pandas as pd
 import joblib
+import asyncio
 from sklearn.pipeline import Pipeline
 
 # Load the trained model
@@ -33,6 +34,15 @@ class InputData(BaseModel):
 
 # Initialize FastAPI app
 app = FastAPI()
+
+async def fetch_data():
+    await asyncio.sleep(1)  # Simulate an I/O operation
+    return "Data fetched"
+
+@app.get("/")
+async def read_root():
+    result = await fetch_data()  # Await the asynchronous function
+    return {"message": result}
 
 # Define the prediction endpoint
 @app.post("/predict")
