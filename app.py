@@ -4,19 +4,10 @@ from pydantic import BaseModel
 import pandas as pd
 import joblib
 import asyncio
-from typing import Dict, Any
+from sklearn.pipeline import Pipeline
 
 # Load the trained model
-def load_model(model_path: str):
-    """Load the trained model from a file."""
-    try:
-        model = joblib.load(model_path)
-        return model
-    except Exception as e:
-        raise RuntimeError(f"Failed to load the model: {e}")
-
-# Load the model (replace with the path to your saved model)
-model = load_model("rain_prediction_model.joblib")
+model = joblib.load("rain_prediction_model.joblib")  # Replace with the path to your saved model
 
 # Define the input data schema using Pydantic
 class InputData(BaseModel):
@@ -44,41 +35,35 @@ class InputData(BaseModel):
 # Initialize FastAPI app
 app = FastAPI()
 
-# Example asynchronous function
-async def fetch_data() -> str:
-    """Simulate an asynchronous I/O operation."""
-    await asyncio.sleep(1)
-    return "Data fetched"
+# Simulate an asynchronous data fetch operation
+async def fetch_data():
+    await asyncio.sleep(1)  # Simulate an I/O operation
+    return {"message": "Data fetched successfully"}
 
+# Root endpoint
 @app.get("/")
-async def read_root() -> Dict[str, str]:
-    """Root endpoint that demonstrates asynchronous functionality."""
-    result = await fetch_data()
-    return {"message": result}
+async def read_root():
+    result = await fetch_data()  # Await the asynchronous function
+    return result
 
-# Define the prediction endpoint
+# Prediction endpoint
 @app.post("/predict")
-async def predict(data: InputData) -> Dict[str, Any]:
-    """Endpoint to make predictions using the trained model."""
+def predict(data: InputData):
     try:
         # Convert input data to a DataFrame
         input_data = pd.DataFrame([data.dict()])
 
-        # Run the model prediction in a separate thread to avoid blocking the event loop
-        prediction, prediction_proba = await asyncio.to_thread(
-            lambda: (
-                model.predict(input_data),
-                model.predict_proba(input_data)[:, 1],
-            )
-        )
+        # Make a prediction using the trained model
+        prediction = model.predict(input_data)
+        prediction_proba = model.predict_proba(input_data)[:, 1]
 
         # Return the prediction
         return {
             "prediction": "Yes" if prediction[0] == 1 else "No",
-            "probability": float(prediction_proba[0]),
+            "probability": float(prediction_proba[0])
         }
     except Exception as e:
-        raise HTTPException(status_code=400, detail=f"Prediction failed: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
 
 # Save the trained model to a file (run this once before deploying)
 # joblib.dump(best_model, "rainfall_model.pkl")
