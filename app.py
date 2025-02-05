@@ -64,6 +64,3 @@ def predict(data: InputData):
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
-
-# Save the trained model to a file (run this once before deploying)
-# joblib.dump(best_model, "rainfall_model.pkl")
