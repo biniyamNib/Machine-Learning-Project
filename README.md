@@ -120,6 +120,7 @@ Rain_Prediction_Model/
 ├── main.py                      # Script for data preprocessing and training the model
 ├── rain_prediction_model.joblib # Trained model
 ├── requirements.txt             # Python dependencies
+├── Procfile                     # Procfile
 ├── Weather.csv                  # csv file
 ├── streamlit_app.py             # User Interface
 └── README.md  
