@@ -14,14 +14,14 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.dummy import DummyClassifier
 
 # Reduce the data size
-data = pd.read_csv('C:\\Users\\SOFTWARE\\Desktop\\weatherAUS.csv');
-small_data = data.head(20000)
+# data = pd.read_csv('C:\\Users\\SOFTWARE\\Desktop\\weatherAUS.csv');
+# small_data = data.head(20000)
 
 # Save the smaller dataset to a new CSV file
-small_data.to_csv("weather.csv", index=False)
+# small_data.to_csv("weather.csv", index=False)
 
 # Load the dataset
-df = pd.read_csv('weather.csv')
+df = pd.read_csv('Weather.csv')
 
 # Display the first few rows of the dataset
 print("First 5 rows of the dataset:")
