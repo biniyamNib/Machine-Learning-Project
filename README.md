@@ -29,8 +29,8 @@ This project aims to predict whether it will rain tomorrow in using historical w
  #### Steps
 
  1. Clone the repository:
-   `[https://github.com/biniyamNib/Machine-Learning-Project.git](https://github.com/biniyamNib/Machine-Learning-Project.git)`
-    `cd Rain_Prediction_Model`
+   `https://github.com/biniyamNib/Machine-Learning-Project.git)`
+    `cd Machine-Learning-Project`
 
  2. Install the required dependencies:
    `pip install -r requirements.txt`
