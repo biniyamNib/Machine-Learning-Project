@@ -17,6 +17,7 @@ This project aims to predict whether it will rain tomorrow in using historical w
  4. Results
  5. Project Structure
  6. Future Improvements
+ 7. License
 
 
  ## Installation
@@ -144,4 +145,9 @@ Rain_Prediction_Model/
 4. **Real-Time Data Integration:**
 
    - Integrate real-time weather data for more accurate predictions.
+
+## License
+
+This project is licensed under the **Open Database License (ODbL)**. The dataset is publicly available for educational and research purposes with proper attribution.
+
 
