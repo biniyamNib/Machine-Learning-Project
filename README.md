@@ -58,7 +58,7 @@ This project aims to predict whether it will rain tomorrow in using historical w
 
  - Deploy the model as an API using FastAPI:
  `uvicorn app:app --reload`
- - Access the API documentation at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
+ - Access the API at [https://biniyamnib-machine-learning-project-streamlit-app-ivwuoq.streamlit.app/](https://biniyamnib-machine-learning-project-streamlit-app-ivwuoq.streamlit.app/).
 
 ## Results
 
